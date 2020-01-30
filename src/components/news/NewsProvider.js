@@ -37,7 +37,7 @@ export const NewsProvider = (props) => {
             },
             body: JSON.stringify(news)
         })
-            .then(getNewss)
+            .then(getNews)
     }
 
     const deleteNews = newsId => {
@@ -48,15 +48,15 @@ export const NewsProvider = (props) => {
     }
 
     /*
-        Load all Newss when the component is mounted. Ensure that
+        Load all News when the component is mounted. Ensure that
         an empty array is the second argument to avoid infinite loop.
     */
     useEffect(() => {
-        getNewss()
+        getNews()
     }, [])
 
     useEffect(() => {
-        console.log("****  News APPLICATION STATE CHANGED  ****")
+        console.log("****  NEWS APPLICATION STATE CHANGED  ****")
         
     }, [news])
 
