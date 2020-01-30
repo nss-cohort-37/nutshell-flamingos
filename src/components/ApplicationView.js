@@ -19,11 +19,11 @@ export default (props) => {
             
             
             <NewsProvider>
-                <FriendProvider>
+                <FriendsProvider>
                     <Route exact path="/news" render={
                     props => <NewsList {...props} />
                     } />
-                </FriendProvider>
+                </FriendsProvider>
             </NewsProvider>
 
             

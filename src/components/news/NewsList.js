@@ -30,7 +30,7 @@ export default (props) => {
 
         {
           currentUserFriendsNews.map(news => {
-            return <Event key={news.id} news={news}/>
+            return <News key={news.id} news={news}/>
 
 
           })
