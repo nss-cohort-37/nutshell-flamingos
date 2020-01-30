@@ -1,6 +1,6 @@
 
 import React, { useContext } from "react"
-import { EventsContext } from "./EventProvider"
+import { EventsContext } from "./EventsProvider"
 import { FriendsContext } from "../user/FriendsProvider"
 import Event from "./Event"
 import "./Events.css"
