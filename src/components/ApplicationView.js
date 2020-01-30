@@ -19,8 +19,14 @@ export default (props) => {
             </TasksProvider>
             
             <NewsProvider>
-                
+                <FriendProvider>
+                    <Route path="/employees/create" render={
+                    props => <NewsList {...props} />
+                    } />
+                </FriendProvider>
             </NewsProvider>
+
+            
             
         </>
     )
