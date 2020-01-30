@@ -9,7 +9,7 @@ export const UserContext = React.createContext()
 /*
 This component establishes what data can be used.
 */
-export const UsersProvider = (props) => {
+export const UserProvider = (props) => {
   const [users, setUsers] = useState([])
   
   const getUsers = () => {
