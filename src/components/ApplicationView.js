@@ -1,7 +1,9 @@
 import React from "react"
 import { Route } from "react-router-dom"
 import { UserProvider } from "./user/UserProvider"
+import { TasksProvider } from "./tasks/TasksProvider"
 import { NewsProvider } from "./news/NewsProvider";
+
 
 
 // renders the different page views utilising route
@@ -11,6 +13,10 @@ export default (props) => {
             <UserProvider>
                 
             </UserProvider>
+
+            <TasksProvider>
+              
+            </TasksProvider>
             
             <NewsProvider>
                 
