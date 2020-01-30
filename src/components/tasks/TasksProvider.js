@@ -29,13 +29,13 @@ export const TasksProvider = (props) => {
             .then(getTasks)
     }
 
-    const editTasks = tasks => {
+    const editTasks = task => {
       return fetch(`http://localhost:8088/tasks/${task.id}`, {
           method: "PUT",
           headers: {
               "Content-Type": "application/json"
           },
-          body: JSON.stringify(tasks)
+          body: JSON.stringify(task)
       })
           .then(getTasks)
   }
