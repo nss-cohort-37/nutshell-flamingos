@@ -8,19 +8,19 @@ import "./Tasks.css"
 
 export default (props) => {
   const { tasks } = useContext(TasksContext)
-  const  currentUser  = parseInt(localStorage.getItem("currentUserId"), 10)
-  
+  const  currentUserId  = parseInt(localStorage.getItem("currentUserId"), 10)
+  const currentUserTasks = tasks.filter(task => task.userId === currentUserId)
 
   return (
       <>
           <h1>Tasks</h1>
 
           <button onClick={() => props.history.push("/tasks/create")}>
-            Save Task
+            New Task
           </button>
           <div className="tasks">
               {
-                  tasks.map(task => {
+                  currentUserTasks.map(task => {
                       return <Task key={task.id} task={task} />
                   })
               }

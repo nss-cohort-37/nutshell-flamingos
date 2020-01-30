@@ -6,6 +6,8 @@ import Login from "./auth/Login"
 import Register from "./auth/Register"
 import "./Nutshell.css"
 import ApplicationView from "./ApplicationView";
+import { TasksProvider } from "./tasks/TasksProvider"
+import TasksList from "./tasks/TasksList"
 
 export default () => (
     <>
@@ -15,6 +17,11 @@ export default () => (
                     <>
                         <Route render={props => <NavBar {...props} />} />
                         <Route render={props => <ApplicationView {...props} />} />
+                    <TasksProvider>
+                    <Route exact path = "/tasks" render ={
+                            props => <TasksList { ...props} />
+                        } />
+                    </TasksProvider>
                     </>
                 )
             } else {
