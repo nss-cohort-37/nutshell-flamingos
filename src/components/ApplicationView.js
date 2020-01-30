@@ -1,11 +1,15 @@
 import React from "react"
 import { Route } from "react-router-dom"
+import { UserProvider } from "./user/UserProvider"
 
 
 // renders the different page views utilising route
 export default (props) => {
     return (
         <>
+            <UserProvider>
+                
+            </UserProvider>
             
             
         </>
