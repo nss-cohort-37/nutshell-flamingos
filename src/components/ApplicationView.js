@@ -5,7 +5,7 @@ import { NewsProvider } from "./news/NewsProvider";
 import { EventsProvider } from "./events/EventsProvider";
 import EventsList from "./events/EventsList";
 import { FriendsProvider } from "./user/FriendsProvider";
-import {NewsList} from "./news/NewsList"
+import NewsList from "./news/NewsList"
 
 
 
