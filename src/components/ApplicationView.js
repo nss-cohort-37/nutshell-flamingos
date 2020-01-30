@@ -3,6 +3,9 @@ import { Route } from "react-router-dom"
 import { UserProvider } from "./user/UserProvider"
 import { TasksProvider } from "./tasks/TasksProvider"
 import { NewsProvider } from "./news/NewsProvider";
+import { EventsProvider } from "./events/EventsProvider";
+import EventsList from "./events/EventsList";
+import { FriendsProvider } from "./user/FriendsProvider";
 
 
 
@@ -21,7 +24,13 @@ export default (props) => {
             <NewsProvider>
                 
             </NewsProvider>
-            
+            <FriendsProvider>
+            <EventsProvider>
+                <Route exact path = "/events" render ={
+                    props => <EventsList { ...props} />
+                } />
+            </EventsProvider>
+            </FriendsProvider>
         </>
     )
 }
