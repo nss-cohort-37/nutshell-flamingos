@@ -8,7 +8,7 @@ import News from "./News"
 export default (props) => {
   const { news } = useContext(NewsContext)
   const {friends} = useContext(FriendsContext)
-  const currentUser = parseInt(locatStorage.getItem("currentUserId"), 10)
+  const currentUser = parseInt(localStorage.getItem("currentUserId"), 10)
   const currentUserFriends = friends.filter(friend => friend.userId === currentUser)
     const currentUserFriendsNews = 
         currentUserFriends.map(friend => {
