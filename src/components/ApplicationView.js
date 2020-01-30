@@ -1,6 +1,7 @@
 import React from "react"
 import { Route } from "react-router-dom"
 import { UserProvider } from "./user/UserProvider"
+import { NewsProvider } from "./news/NewsProvider";
 
 
 // renders the different page views utilising route
@@ -11,6 +12,9 @@ export default (props) => {
                 
             </UserProvider>
             
+            <NewsProvider>
+                
+            </NewsProvider>
             
         </>
     )
