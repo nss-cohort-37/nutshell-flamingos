@@ -18,7 +18,7 @@ export const NewsProvider = (props) => {
             .then(setNews)
     }
 
-    const addNews = News => {
+    const addNews = news => {
         return fetch("http://localhost:8088/news", {
             method: "POST",
             headers: {
