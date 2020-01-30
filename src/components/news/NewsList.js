@@ -10,15 +10,25 @@ export default (props) => {
   const { friends } = useContext(FriendsContext)
   const currentUser = parseInt(localStorage.getItem("currentUserId"), 10)
   const currentUserFriends = friends.filter(friend => friend.userId === currentUser)
-  const currentUserFriendsNews =
+  const friendsArray = []
+  
+
+
+
+  const currentUserFriendsNews = 
     currentUserFriends.map(friend => {
       const currentFriendsNews = news.filter(n => n.userId === friend.id)
       return currentFriendsNews
+      friendsArray.push(currentFriendsNews)
 
 
     })
     const currentUserNews = news.filter(news => news.userId === currentUser)
-    
+    const newsArray = currentUserFriendsNews.concat(currentUserNews)
+    console.log(newsArray)
+
+
+
   return (
     <div className="news">
       <h1>News</h1>
@@ -39,7 +49,9 @@ export default (props) => {
 
         }
       </article>
-      <article className="newsList">
+
+
+      {/* <article className="newsList">
 
 
 
@@ -51,7 +63,7 @@ export default (props) => {
           })
 
         }
-      </article>
+      </article> */}
     </div>
   )
 }
