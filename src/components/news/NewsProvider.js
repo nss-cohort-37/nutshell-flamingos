@@ -29,8 +29,26 @@ export const NewsProvider = (props) => {
             .then(getNews)
     }
 
+    const editNews = news => {
+        return fetch(`http://localhost:8088/news/${news.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(news)
+        })
+            .then(getNewss)
+    }
+
+    const deleteNews = newsId => {
+        return fetch(`http://localhost:8088/Newss/${newsId}`, {
+            method: "DELETE"
+        })
+            .then(getNews)
+    }
+
     /*
-        Load all animals when the component is mounted. Ensure that
+        Load all Newss when the component is mounted. Ensure that
         an empty array is the second argument to avoid infinite loop.
     */
     useEffect(() => {
@@ -44,7 +62,7 @@ export const NewsProvider = (props) => {
 
     return (
         <NewsContext.Provider value={{
-            news, addNews
+            news, addNews, deleteNews, editNews
         }}>
             {props.children}
         </NewsContext.Provider>
