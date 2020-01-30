@@ -5,6 +5,7 @@ import { NewsProvider } from "./news/NewsProvider";
 import { EventsProvider } from "./events/EventsProvider";
 import EventsList from "./events/EventsList";
 import { FriendsProvider } from "./user/FriendsProvider";
+import NewsList from "./news/NewsList"
 
 
 
@@ -19,8 +20,15 @@ export default (props) => {
             
             
             <NewsProvider>
-                
+                <FriendsProvider>
+                    <Route exact path="/news" render={
+                    props => <NewsList {...props} />
+                    } />
+                </FriendsProvider>
             </NewsProvider>
+
+            
+            
             <FriendsProvider>
             <EventsProvider>
                 <Route exact path = "/events" render ={
