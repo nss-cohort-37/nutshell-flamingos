@@ -9,12 +9,15 @@ export default (props) => {
   const { news } = useContext(NewsContext)
   const {friends} = useContext(FriendsContext)
   const currentUser = parseInt(locatStorage.getItem("currentUserId"), 10)
-  const currentUserFriendsNews =
-  currentUserFriendsNews.map(friend => {
-    const currentFriendNews = events.filter(evt => evt.userId === friend.id)
-  })
+  const currentUserFriends = friends.filter(friend => friend.userId === currentUser)
+    const currentUserFriendsNews = 
+        currentUserFriends.map(friend => {
+            const currentFriendsNews = news.filter(n => n.userId === friend.id)
+            return currentFriendsNews
   
 
+  })
+  
   return (
     <div className="news">
       <h1>News</h1>
@@ -26,8 +29,8 @@ export default (props) => {
 
 
         {
-          currentUserFriendsNews.map(event => {
-            return <Event key={event.id} event={event}/>
+          currentUserFriendsNews.map(news => {
+            return <Event key={news.id} news={news}/>
 
 
           })
