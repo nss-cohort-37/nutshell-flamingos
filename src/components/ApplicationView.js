@@ -7,15 +7,25 @@ import EventsList from "./events/EventsList";
 import { FriendsProvider } from "./user/FriendsProvider";
 import NewsList from "./news/NewsList"
 import NewsForm from "./news/NewsForm"
+<<<<<<< HEAD
 import {MessagesProvider} from "./messages/MessagesProvider"
 import MessagesList from "./messages/MessagesList"
+=======
+import FriendsList from "./user/FriendsList";
+
+
+>>>>>>> master
 
 // renders the different page views utilising route
 export default (props) => {
     return (
         <>
             <UserProvider>
-
+                <FriendsProvider>
+                <Route  path="/" render={
+                        props => <FriendsList {...props} />
+                    } />
+                </FriendsProvider>
             </UserProvider>
 
             <NewsProvider>
