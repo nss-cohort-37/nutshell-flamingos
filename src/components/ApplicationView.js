@@ -5,16 +5,12 @@ import { NewsProvider } from "./news/NewsProvider";
 import { EventsProvider } from "./events/EventsProvider";
 import EventsList from "./events/EventsList";
 import { FriendsProvider } from "./user/FriendsProvider";
-import NewsList from "./news/NewsList"
-import NewsForm from "./news/NewsForm"
-<<<<<<< HEAD
-import {MessagesProvider} from "./messages/MessagesProvider"
-import MessagesList from "./messages/MessagesList"
-=======
+import NewsList from "./news/NewsList";
+import NewsForm from "./news/NewsForm";
+import EventsForm from "./events/EventsForm";
+import {MessagesProvider} from "./messages/MessagesProvider";
+import MessagesList from "./messages/MessagesList";
 import FriendsList from "./user/FriendsList";
-
-
->>>>>>> master
 
 // renders the different page views utilising route
 export default (props) => {
@@ -66,6 +62,14 @@ export default (props) => {
                 <EventsProvider>
                     <Route exact path="/events" render={
                         props => <EventsList {...props} />
+                    } />
+
+                    <Route exact path="/events/create" render={
+                        props => <EventsForm {...props} />
+                    } />
+
+                    <Route path="/events/edit/:eventsId(\d+)" render={
+                        props => <EventsForm {...props} />
                     } />
                 </EventsProvider>
             </FriendsProvider>
