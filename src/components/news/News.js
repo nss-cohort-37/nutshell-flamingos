@@ -2,12 +2,19 @@ import React from "react"
 
 
 
-export default ({ news }) => (
+export default ({ news, history }) => (
     <section className="news_List">
         <div className="news__title">{news.title}</div>
         <div className="news__synopsis">{news.synopsis}</div>
         <div className="news__url">{news.url}</div>
         <div className="news__url">posted by {news.user.name}</div>
+        <div className="news__url">posted by {news.date}</div>
+        <button onClick={() => {
+                history.push(`/news/edit/${news.id}`)
+            }}>Edit
+        </button>
+
+        {/* ask and research object destructering!!!! */}
 
 
 

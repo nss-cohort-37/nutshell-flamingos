@@ -39,11 +39,12 @@ export default (props) => {
       <article className="newsList">
         {
           combinedNewsArray.map(news => {
-            return <News key={news.id} news={news} />
+            return <News {...props} key={news.id} news={news} />
             
           })
 
         }
+        
       </article>
     </div>
   )
