@@ -18,7 +18,7 @@ export default () => (
                         <Route render={props => <NavBar {...props} />} />
                         <Route render={props => <ApplicationView {...props} />} />
                     <TasksProvider>
-                    <Route exact path = "/tasks" render ={
+                    <Route render ={
                             props => <TasksList { ...props} />
                         } />
                     </TasksProvider>
