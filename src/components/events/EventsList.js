@@ -8,31 +8,42 @@ import "./Events.css"
 export default (props) => {
     const { events } = useContext(EventsContext)
     const { friends } = useContext(FriendsContext)
-    const currentUser = parseInt(localStorage.getItem("currentUserId"),10)
-    const currentUserFriends = friends.filter(friend => friend.userId === currentUser)
-    const currentUserFriendEvent = 
-        currentUserFriends.map(friend => {
-            const currentFriendEvent = events.filter(evt => evt.userId === friend.id)
-            return currentFriendEvent
-        })
-console.log(currentUserFriendEvent)
+    const currentUser = parseInt(localStorage.getItem("currentUserId"), 10)
+    let friendsEventArray = []
+
+    friends.map(friend => {
+        if (friend.userId === currentUser) {
+            events.filter(
+                n => {
+                    if (n.userId === friend.friendId) {
+                        friendsEventArray.push(n)
+                    }
+                })
+        }
+    })
+
+    const currentUserEvents = events.filter(events => events.userId === currentUser)
+    const combinedEventsArray = currentUserEvents.concat(friendsEventArray)
+
+
+
 
     return (
-        <>
-            <h1>Events</h1>
-
-            <button onClick={() => props.history.push("/events/create")}>
-                Make Event
-            </button>
             <div className="events">
+                <h1>Events</h1>
 
-                {
-                    currentUserFriendEvent.map(event => {
-                        return <Event key={event.id} event={event} />
-                    })
-                }
+                <button onClick={() => props.history.push("/events/create")}>
+                    New Event
+                </button>
+                <article className="eventList">
+
+                    {
+                        combinedEventsArray.map(event => {
+                            return <Event key={event.id} event={event} />
+                        })
+                    }
+                </article>
             </div>
-        </>
     )
 }
 

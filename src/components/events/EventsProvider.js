@@ -14,7 +14,7 @@ export const EventsProvider = (props) => {
   const [events, setEvents] = useState([])
   
   const getEvents = () => {
-    return fetch("http://localhost:8088/events")
+    return fetch("http://localhost:8088/events?_expand=user")
     .then(res => res.json())
     .then(setEvents)
   }

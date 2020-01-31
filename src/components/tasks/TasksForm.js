@@ -34,9 +34,7 @@ export default props => {
     const constructNewTask = () => {
         
 
-        if (task.text === 0) {
-            window.alert("Please select a location")
-        } else {
+        
             if (editMode) {
                 updateTask({
                   
@@ -53,7 +51,7 @@ export default props => {
                    
                 })
                     .then(() => props.history.push("/tasks"))
-            }
+            
         }
     }
 
