@@ -1,20 +1,47 @@
 
-import React from "react"
+import React, {useContext} from "react"
 import "./Events.css"
+import { EventsContext } from "./EventsProvider"
 
-export default ({ event }) => (
-    <section className="event__list">
-        <h4 className="event__name">{ event.name }</h4>
-        <div className="event__location">Location: { event.location }</div>
-        <div className="event__date">Date: { event.date }</div>
-        <div className="event__posted">posted by {event.user.name}</div>
 
-        <button onClick={() => {
-                props.history.push(`/events/edit/${event.id}`)
-            }}>Edit</button>
-        <button className="event__delete">Delete</button>
-    </section>
-)
+export default ({ event, history }) => {
+
+    const { deleteEvent } = useContext(EventsContext)
+    
+    // Display conditional buttons
+    function LoggedInUserButtons() {
+      if (event.userId === parseInt(localStorage.getItem("currentUser"))) {
+        return (
+          <>
+            <button onClick={() => {
+              history.push(`/events/edit/${event.id}`)
+          }}>Edit</button>
+
+          <button onClick={
+              () => {
+                  deleteEvent(event)
+                      .then(() => {
+                          history.push("/events")
+                      })}
+          }>Delete</button>
+        </>
+        )
+      }
+    } 
+
+
+    return(
+        <section className="event__list">
+            <h4 className="event__name">{ event.name }</h4>
+            <div className="event__location">Location: { event.location }</div>
+            <div className="event__date">Date: { event.date }</div>
+            <div className="event__posted">posted by {event.user.name}</div>
+
+            <div>{LoggedInUserButtons()}</div>
+
+        </section>
+    )
+}
 
 
 
