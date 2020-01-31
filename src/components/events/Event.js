@@ -3,7 +3,7 @@ import React from "react"
 import "./Events.css"
 
 export default ({ event }) => (
-    <section className="event">
+    <section className="event__list">
         <h4 className="event__name">{ event.name }</h4>
         <div className="event__location">Location: { event.location }</div>
         <div className="event__date">Date: { event.date }</div>
