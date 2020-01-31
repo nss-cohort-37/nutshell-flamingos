@@ -13,12 +13,12 @@ export const NewsProvider = (props) => {
     const [news, setNews] = useState([])
 
     const getNews = () => {
-        return fetch("http://localhost:8088/news")
+        return fetch("http://localhost:8088/news?_expand=user")
             .then(res => res.json())
             .then(setNews)
     }
 
-    const addNews = News => {
+    const addNews = news => {
         return fetch("http://localhost:8088/news", {
             method: "POST",
             headers: {
