@@ -5,12 +5,12 @@ import { NewsProvider } from "./news/NewsProvider";
 import { EventsProvider } from "./events/EventsProvider";
 import EventsList from "./events/EventsList";
 import { FriendsProvider } from "./user/FriendsProvider";
-import NewsList from "./news/NewsList"
-import NewsForm from "./news/NewsForm"
+import NewsList from "./news/NewsList";
+import NewsForm from "./news/NewsForm";
 import EventsForm from "./events/EventsForm";
+import {MessagesProvider} from "./messages/MessagesProvider";
+import MessagesList from "./messages/MessagesList";
 import FriendsList from "./user/FriendsList";
-
-
 
 // renders the different page views utilising route
 export default (props) => {
@@ -49,7 +49,14 @@ export default (props) => {
                 </FriendsProvider>
             </NewsProvider>
 
-
+            <MessagesProvider>
+                
+                    <Route exact path="/" render={
+                        props => <MessagesList {...props} />
+                    } />
+                   
+                
+            </MessagesProvider>
 
             <FriendsProvider>
                 <EventsProvider>
