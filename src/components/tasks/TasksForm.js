@@ -38,19 +38,21 @@ export default props => {
             if (editMode) {
                 updateTask({
                   
-                    task: task.text,
+                    text: task.text,
                   
                  
                 })
-                    .then(() => props.history.push("/tasks"))
+                    .then(() => props.history.push("/"))
             } else {
                 addTasks({
-                
-                    task: task.text,
+
+                    text: task.text,
+                    userId: parseInt(localStorage.getItem("currentUserId")),
+                    date: Date.now() 
                   
                    
                 })
-                    .then(() => props.history.push("/tasks"))
+                    .then(() => props.history.push("/"))
             
         }
     }
@@ -61,7 +63,7 @@ export default props => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="name">Task: </label>
-                    <input type="text" name="name" required autoFocus className="form-control"
+                    <input type="text" name="text" required autoFocus className="form-control"
                         proptype="varchar"
                         placeholder="Task"
                         defaultValue=""
