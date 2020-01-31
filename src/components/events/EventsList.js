@@ -14,7 +14,10 @@ export default (props) => {
         currentUserFriends.map(friend => {
             const currentFriendEvent = events.filter(evt => evt.userId === friend.id)
             return currentFriendEvent
+            
         })
+
+    const currentUserEvents = events.filter(event => event.userId === currentUser)
 console.log(currentUserFriendEvent)
 
     return (
@@ -22,13 +25,21 @@ console.log(currentUserFriendEvent)
             <h1>Events</h1>
 
             <button onClick={() => props.history.push("/events/create")}>
-                Make Event
+                New Event
             </button>
             <div className="events">
 
                 {
                     currentUserFriendEvent.map(event => {
                         return <Event key={event.id} event={event} />
+                    })
+                }
+            </div>
+            <div className="userEvents">
+
+                {
+                    currentUserEvents.map(event => {
+                        return <Event key={event.id} event={name} />
                     })
                 }
             </div>
