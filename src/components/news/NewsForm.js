@@ -32,6 +32,8 @@ export default props => {
     setDefaults()
   }, [news])
 
+  
+
   const constructNewNews = () => {
     
 
@@ -101,7 +103,7 @@ export default props => {
       </fieldset>
 
       <button type="submit"
-        onClick={evt => {debugger
+        onClick={evt => {
           evt.preventDefault()
           constructNewNews()
         }}

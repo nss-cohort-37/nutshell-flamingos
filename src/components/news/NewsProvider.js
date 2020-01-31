@@ -40,8 +40,8 @@ export const NewsProvider = (props) => {
             .then(getNews)
     }
 
-    const deleteNews = newsId => {
-        return fetch(`http://localhost:8088/news/${newsId}`, {
+    const deleteNews = news => {
+        return fetch(`http://localhost:8088/news/${news.id}`, {
             method: "DELETE"
         })
             .then(getNews)
