@@ -8,8 +8,10 @@ import FriendSearch from "./FriendSearch";
 
 
 export default (props) => {
+    const contentTarget = document.querySelector(".friendsSearchList")
   const { friends, addFriends } = useContext(FriendsContext)
   const { users } = useContext(UserContext)
+  const [nonFriend, setNonFriend] = useState({});
 //   const [friend, setFriend] = useState({});
   const friendName = useRef("");
   const currentUser = parseInt(localStorage.getItem("currentUserId"), 10)
@@ -40,6 +42,8 @@ export default (props) => {
 
     // };
 
+    
+
     let searchResultsArray = []
     const constructNewFriendArray = () => {
         const searchTerm = friendName.current.value.toUpperCase() 
@@ -59,10 +63,18 @@ export default (props) => {
               })
           }
       };
-
+        
       console.log(searchResultsArray);
       
+    const printNewArray = () => {
+        contentTarget.innerHTML= 
 
+            searchResultsArray.map(user => {
+              return `<h3>${user.name}</h3>`
+            }).join("")
+  
+          
+    }
   return (
     <div className="news">
       <h1>Friends</h1>
@@ -84,6 +96,7 @@ export default (props) => {
             onClick={evt => {
             evt.preventDefault();
             constructNewFriendArray();
+            printNewArray()
             }}
             className="btn btn-primary"
         >Search</button>
@@ -101,12 +114,7 @@ export default (props) => {
       <article className="friendsSearchList">
           
 
-        {
-          searchResultsArray.map(user => {
-            return <FriendSearch key={user.id} user={user} />
-          })
-
-        }
+        
       </article>
 
     </div>
