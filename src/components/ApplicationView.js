@@ -23,6 +23,8 @@ export default (props) => {
                 props => <NewsForm {...props} />
                 } />
 
+               
+
                 
 
                 <Route path="/news/edit/:newsId(\d+)" render={

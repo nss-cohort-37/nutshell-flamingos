@@ -40,6 +40,7 @@ export default props => {
         id: newsies.id,
         title: newsies.title,
         synopsis: newsies.synopsis,
+        url: newsies.url,
         userId: parseInt(localStorage.getItem("currentUserId"))
       })
         .then(() => props.history.push("/news"))
@@ -48,6 +49,7 @@ export default props => {
         
         title: newsies.title,
         synopsis: newsies.synopsis,
+        url: newsies.url,
         userId: parseInt(localStorage.getItem("currentUserId"))
       })
         .then(() => props.history.push("/news"))
@@ -97,7 +99,7 @@ export default props => {
       </fieldset>
 
       <button type="submit"
-        onClick={evt => {
+        onClick={evt => {debugger
           evt.preventDefault()
           constructNewNews()
         }}
