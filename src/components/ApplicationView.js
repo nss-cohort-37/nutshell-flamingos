@@ -6,6 +6,8 @@ import { EventsProvider } from "./events/EventsProvider";
 import EventsList from "./events/EventsList";
 import { FriendsProvider } from "./user/FriendsProvider";
 import NewsList from "./news/NewsList"
+import TasksForm from "./tasks/TasksForm"
+import { TasksProvider } from "./tasks/TasksProvider";
 
 
 
@@ -36,6 +38,12 @@ export default (props) => {
                 } />
             </EventsProvider>
             </FriendsProvider>
+
+            <TasksProvider>
+            <Route exact path="/tasks/create" render={
+                            props => <TasksForm {...props} />
+                        } />
+            </TasksProvider>
         </>
     )
 }
