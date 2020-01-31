@@ -17,11 +17,7 @@ export default () => (
                     <>
                         <Route render={props => <NavBar {...props} />} />
                         <Route render={props => <ApplicationView {...props} />} />
-                    <TasksProvider>
-                    <Route render ={
-                            props => <TasksList { ...props} />
-                        } />
-                    </TasksProvider>
+                    
                     </>
                 )
             } else {
