@@ -55,10 +55,10 @@ export const NewsProvider = (props) => {
         getNews()
     }, [])
 
-    useEffect(() => {
-        console.log("****  NEWS APPLICATION STATE CHANGED  ****")
+    // useEffect(() => {
+    //     console.log("****  NEWS APPLICATION STATE CHANGED  ****")
         
-    }, [news])
+    // }, [news])
 
     return (
         <NewsContext.Provider value={{
