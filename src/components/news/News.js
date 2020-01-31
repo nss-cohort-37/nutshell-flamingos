@@ -7,6 +7,8 @@ export default ({ news }) => (
         <div className="news__title">{news.title}</div>
         <div className="news__synopsis">{news.synopsis}</div>
         <div className="news__url">{news.url}</div>
+        <div className="news__url">posted by {news.user.name}</div>
+
 
 
     </section>
