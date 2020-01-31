@@ -2,30 +2,30 @@ import React, { useContext } from "react"
 import { NewsContext } from "./NewsProvider"
 import { FriendsContext } from "../user/FriendsProvider"
 import News from "./News"
-// import "./Animals.css"
+
+// -daniel and mac
 
 
 export default (props) => {
   const { news } = useContext(NewsContext)
   const { friends } = useContext(FriendsContext)
   const currentUser = parseInt(localStorage.getItem("currentUserId"), 10)
-  const currentUserFriends = friends.filter(friend => friend.userId === currentUser)
-  // const friendsArray = []
-  
+  let friendsNewsArray = []
 
+    friends.map(friend => {
+        if (friend.userId === currentUser) {
+            news.filter(
+                n => {
+                    if (n.userId === friend.friendId) {
+                        friendsNewsArray.push(n)
+                    }
+                  })
+                }
+              })
 
-
-  const currentUserFriendsNews = 
-    currentUserFriends.map(friend => {
-      const currentFriendsNews = news.filter(n => n.userId === friend.id)
-      return currentFriendsNews
-      // friendsArray.push(currentFriendsNews)
-
-
-    })
     const currentUserNews = news.filter(news => news.userId === currentUser)
-    const newsArray = currentUserFriendsNews.concat(currentUserNews)
-    console.log(newsArray)
+    const combinedNewsArray = currentUserNews.concat(friendsNewsArray)
+    
 
 
 
@@ -37,33 +37,14 @@ export default (props) => {
         Add News
           </button>
       <article className="newsList">
-
-
-
         {
-          currentUserFriendsNews.map(news => {
+          combinedNewsArray.map(news => {
             return <News key={news.id} news={news} />
-
-
+            
           })
 
         }
       </article>
-
-
-      {/* <article className="newsList">
-
-
-
-        {
-          currentUserNews.map(news => {
-            return <News key={news.id} news={news} />
-
-
-          })
-
-        }
-      </article> */}
     </div>
   )
 }
