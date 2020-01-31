@@ -10,7 +10,7 @@ export default (props) => {
   const { friends } = useContext(FriendsContext)
   const currentUser = parseInt(localStorage.getItem("currentUserId"), 10)
   const currentUserFriends = friends.filter(friend => friend.userId === currentUser)
-  const friendsArray = []
+  // const friendsArray = []
   
 
 
@@ -19,7 +19,7 @@ export default (props) => {
     currentUserFriends.map(friend => {
       const currentFriendsNews = news.filter(n => n.userId === friend.id)
       return currentFriendsNews
-      friendsArray.push(currentFriendsNews)
+      // friendsArray.push(currentFriendsNews)
 
 
     })

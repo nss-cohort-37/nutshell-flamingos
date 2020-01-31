@@ -18,7 +18,7 @@ export const NewsProvider = (props) => {
             .then(setNews)
     }
 
-    const addNews = News => {
+    const addNews = news => {
         return fetch("http://localhost:8088/news", {
             method: "POST",
             headers: {
@@ -55,10 +55,10 @@ export const NewsProvider = (props) => {
         getNews()
     }, [])
 
-    useEffect(() => {
-        console.log("****  NEWS APPLICATION STATE CHANGED  ****")
+    // useEffect(() => {
+    //     console.log("****  NEWS APPLICATION STATE CHANGED  ****")
         
-    }, [news])
+    // }, [news])
 
     return (
         <NewsContext.Provider value={{

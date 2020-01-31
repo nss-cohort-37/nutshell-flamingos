@@ -6,6 +6,7 @@ import { EventsProvider } from "./events/EventsProvider";
 import EventsList from "./events/EventsList";
 import { FriendsProvider } from "./user/FriendsProvider";
 import NewsList from "./news/NewsList"
+import NewsForm from "./news/NewsForm"
 
 
 
@@ -16,6 +17,19 @@ export default (props) => {
             <UserProvider>
                 
             </UserProvider>
+
+            <NewsProvider>
+                <Route path="/news/create" render={
+                props => <NewsForm {...props} />
+                } />
+
+                
+
+                <Route path="/news/edit/:newsId(\d+)" render={
+                props => <NewsForm {...props} />
+                } />
+
+            </NewsProvider>
 
             
             
