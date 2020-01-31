@@ -41,16 +41,18 @@ export default props => {
         title: newsies.title,
         synopsis: newsies.synopsis,
         url: newsies.url,
-        userId: parseInt(localStorage.getItem("currentUserId"))
+        userId: parseInt(localStorage.getItem("currentUserId")),
+        date: Date.now()
       })
         .then(() => props.history.push("/news"))
-    } else {debugger
+    } else {
       addNews({
         
         title: newsies.title,
         synopsis: newsies.synopsis,
         url: newsies.url,
-        userId: parseInt(localStorage.getItem("currentUserId"))
+        userId: parseInt(localStorage.getItem("currentUserId")),
+        date: Date.now()
       })
         .then(() => props.history.push("/news"))
     }
@@ -59,7 +61,7 @@ export default props => {
 
   return (
     <form className="newsNews">
-      <h2 className="newsNews__title">{editMode ? "Update News" : "Admit news"}</h2>
+      <h2 className="newsNews__title">{editMode ? "Update News" : "Add News"}</h2>
       
       <fieldset>
         <div className="form-group">
@@ -88,10 +90,10 @@ export default props => {
 
       <fieldset>
         <div className="form-group">
-          <label htmlFor="url">Treatments: </label>
+          <label htmlFor="url">Url: </label>
           <input type="text" name="url" className="form-control"
             proptype="varchar"
-            placeholder="News synopsis"
+            placeholder="Url"
             value={newsies.url}
             onChange={handleControlledInputChange}>
           </input>

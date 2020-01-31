@@ -15,42 +15,42 @@ export default (props) => {
     return (
         <>
             <UserProvider>
-                
+
             </UserProvider>
 
             <NewsProvider>
-                <Route path="/news/create" render={
-                props => <NewsForm {...props} />
-                } />
-
-               
-
-                
-
-                <Route path="/news/edit/:newsId(\d+)" render={
-                props => <NewsForm {...props} />
-                } />
 
             </NewsProvider>
 
-            
-            
+
+
             <NewsProvider>
                 <FriendsProvider>
                     <Route exact path="/news" render={
-                    props => <NewsList {...props} />
+                        props => <NewsList {...props} />
+                    } />
+                    <Route exact path="/news/create" render={
+                        props => <NewsForm {...props} />
+                    } />
+
+
+
+
+
+                    <Route path="/news/edit/:newsId(\d+)" render={
+                        props => <NewsForm {...props} />
                     } />
                 </FriendsProvider>
             </NewsProvider>
 
-            
-            
+
+
             <FriendsProvider>
-            <EventsProvider>
-                <Route exact path = "/events" render ={
-                    props => <EventsList { ...props} />
-                } />
-            </EventsProvider>
+                <EventsProvider>
+                    <Route exact path="/events" render={
+                        props => <EventsList {...props} />
+                    } />
+                </EventsProvider>
             </FriendsProvider>
         </>
     )
