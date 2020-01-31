@@ -7,6 +7,7 @@ import EventsList from "./events/EventsList";
 import { FriendsProvider } from "./user/FriendsProvider";
 import NewsList from "./news/NewsList"
 import NewsForm from "./news/NewsForm"
+import FriendsList from "./user/FriendsList";
 
 
 
@@ -15,7 +16,11 @@ export default (props) => {
     return (
         <>
             <UserProvider>
-
+                <FriendsProvider>
+                <Route  path="/" render={
+                        props => <FriendsList {...props} />
+                    } />
+                </FriendsProvider>
             </UserProvider>
 
             <NewsProvider>
