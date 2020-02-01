@@ -30,3 +30,7 @@ button {
       border-color: white;;
       color:white;
   }
+
+  .ApplicationViews {
+      display: flex;
+  }

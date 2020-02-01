@@ -35,7 +35,7 @@ export default (props) => {
 
 
   return (
-    <div className="news">
+    <div className="friends">
       <h1>Friends</h1>
     
       <article className="friendsList">

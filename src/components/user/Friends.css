@@ -1,0 +1,32 @@
+.friendContainer {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 20%;
+}
+
+.friendsList {
+    /* background-color: #1d623c;
+    opacity: 80%; */
+    color: #1d623c;
+}
+
+.friend--card {
+    background-color: #eee;
+    border-radius: 10px;
+    margin-top: 20px;
+    padding-bottom: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: initial;;
+}
+
+.friend--name {
+    background-color: #1d623c;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: #eee;
+    text-align: center;
+    padding-top: .5em;
+    padding-bottom: .25em;
+    margin-block-start: 0 !important;
+}
