@@ -1,7 +1,13 @@
-.friendContainer {
+.friends {
     display: flex;
     flex-direction: column;
-    flex-basis: 20%;
+    flex-basis: 5%;
+    /* margin-right: 5em;  */
+    padding: 1em;
+    background: rgb(238, 238, 238 );
+    border-radius: 10px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 2px 3px rgba(0,0,0,.2);
+    /* align-items: flex-end; */
 }
 
 .friendsList {
@@ -17,7 +23,10 @@
     padding-bottom: 1em;
     display: flex;
     flex-direction: column;
-    align-items: initial;;
+    align-items: initial;
+    /* min-width: 15em; */
+    box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 2px 3px rgba(0,0,0,.2);
+
 }
 
 .friend--name {

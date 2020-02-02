@@ -5,14 +5,25 @@ import "./NavBar.css"
 export default (props) => {
     return (
         <ul className="navbar">
+            <div className="icon--logo">
+             <img className="icon" src={require ('./flamingo.svg')}/>
+             <div className="logo"> flamingo</div>
+
+            </div>
             <li className="navbar__item active">
+                <img className="nav--icon" src={require ('./mail.svg')}/>
                 <Link className="navbar__link" to="/">Messages</Link>
             </li>
             <li className="navbar__item">
+                <img className="nav--icon" src={require ('./news.svg')}/>
                 <Link className="navbar__link" to="/news">News</Link>
             </li>
-            <li className="navbar__item">
-                <Link className="navbar__link" to="/events">Events</Link>
+            <li className="navbar__item">       
+
+                <img className="nav--icon" src={require ('./event.svg')}/>
+                <Link className="navbar__link" to="/events">
+                    Events
+                    </Link>
             </li>
             
             {

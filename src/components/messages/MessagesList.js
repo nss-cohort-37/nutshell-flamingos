@@ -17,6 +17,7 @@ export default (props) => {
 
   return (
       <>
+      <div className= "messagesContainer">
           <h1>Messages</h1>
 
           <button onClick={() => props.history.push("/message/create")}>
@@ -30,6 +31,7 @@ export default (props) => {
                   })
               }
           </div>
+      </div>
       </>
   )
 }

@@ -63,6 +63,7 @@ const Login = props => {
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
                     <h1 className="login--header">FLAMINGO</h1>
+                 
                     <h2>please sign in</h2>
                     <fieldset>
                         <label htmlFor="inputEmail"> email </label>

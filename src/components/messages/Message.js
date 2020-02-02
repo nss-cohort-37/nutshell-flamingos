@@ -7,8 +7,8 @@ import React from "react"
 import "./Messages.css"
 
 export default ({ message }) => (
-    <section className="Message">
-        <h3 className="Message__name">
+    <section className="message--card">
+        <h3 className="message--name">
         { message.message }
         </h3>
         <button className="complete__message">Complete</button>
