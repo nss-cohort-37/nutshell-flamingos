@@ -3,12 +3,16 @@ import React from "react"
 
 
 export default ({ news, history }) => (
-    <section className="news_List">
-        <div className="news__title">{news.title}</div>
-        <div className="news__synopsis">{news.synopsis}</div>
-        <div className="news__url">{news.url}</div>
-        <div className="news__url">posted by {news.user.name}</div>
-        <div className="news__url">posted by {news.date}</div>
+    <section className="news--card">
+        <div className="news--name">{news.title}</div>
+        <div className="news--content">
+            <div className="news__synopsis">{news.synopsis}</div>
+            <div className="news__url">{news.url}</div>
+            <div className="news__author__container"> 
+                <div className="news__author">posted by {news.user.name}</div>
+                <div className="news__author">on {news.date}</div>
+            </div>
+        </div>
         <button onClick={() => {
                 history.push(`/news/edit/${news.id}`)
             }}>Edit

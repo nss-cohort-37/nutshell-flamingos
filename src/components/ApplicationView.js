@@ -45,6 +45,8 @@ export default (props) => {
             
             <NewsProvider>
                 <FriendsProvider>
+                    <div className="newsContainer">
+
                     <Route exact path="/news" render={
                         props => <NewsList {...props} />
                     } />
@@ -56,6 +58,7 @@ export default (props) => {
                     <Route path="/news/edit/:newsId(\d+)" render={
                         props => <NewsForm {...props} />
                     } />
+                    </div>
                 </FriendsProvider>
             </NewsProvider>
 

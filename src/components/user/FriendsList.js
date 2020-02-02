@@ -35,17 +35,20 @@ export default (props) => {
 
 
   return (
-    <div className="friends">
-      <h1>Friends</h1>
-    
-      <article className="friendsList">
-        {
-          arrayOfUsersFriendsObjects.map(user => {
-            return <Friend key={user.id} user={user} />
-          })
-
-        }
-      </article>
+    <div className="stickyWrapper">
+        <div className="friends">
+          <h1>Friends</h1>
+        
+          <article className="friendsList">
+            {
+              
+              arrayOfUsersFriendsObjects.map(user => {
+                return <Friend key={user.id} user={user} />
+              })
+              
+            }
+          </article>
+        </div>
     </div>
   )
 }

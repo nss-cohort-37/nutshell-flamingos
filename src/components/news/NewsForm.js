@@ -60,6 +60,8 @@ export default props => {
   }
 
   return (
+   
+
     <form className="newsNews">
       <h2 className="newsNews__title">{editMode ? "Update News" : "Add News"}</h2>
       

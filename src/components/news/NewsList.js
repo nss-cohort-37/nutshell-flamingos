@@ -2,6 +2,7 @@ import React, { useContext } from "react"
 import { NewsContext } from "./NewsProvider"
 import { FriendsContext } from "../user/FriendsProvider"
 import News from "./News"
+import "./News.css"
 
 // -daniel and mac
 
@@ -30,7 +31,7 @@ export default (props) => {
 
 
   return (
-    <div className="news">
+    <div className="newsContainer">
       <h1>News</h1>
       <button onClick={
         () => props.history.push("/news/create")}>
