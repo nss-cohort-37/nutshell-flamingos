@@ -25,7 +25,9 @@ export default (props) => {
               })
 
     const currentUserNews = news.filter(news => news.userId === currentUser)
+
     const combinedNewsArray = currentUserNews.concat(friendsNewsArray)
+    console.log(combinedNewsArray);
     
 
 

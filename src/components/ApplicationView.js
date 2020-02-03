@@ -3,14 +3,15 @@ import { Route } from "react-router-dom"
 import { UserProvider } from "./user/UserProvider"
 import { NewsProvider } from "./news/NewsProvider";
 import { EventsProvider } from "./events/EventsProvider";
-import EventsList from "./events/EventsList";
 import { FriendsProvider } from "./user/FriendsProvider";
 import NewsList from "./news/NewsList"
 import TasksForm from "./tasks/TasksForm"
 import { TasksProvider } from "./tasks/TasksProvider";
-import NewsForm from "./news/NewsForm";
-import EventsForm from "./events/EventsForm";
 import {MessagesProvider} from "./messages/MessagesProvider";
+
+import NewsForm from "./news/NewsForm";
+import EventsList from "./events/EventsList";
+import EventsForm from "./events/EventsForm";
 import MessagesList from "./messages/MessagesList";
 import FriendsList from "./user/FriendsList";
 import TasksList from "./tasks/TasksList"
@@ -61,6 +62,8 @@ export default (props) => {
                     </div>
                 </FriendsProvider>
             </NewsProvider>
+
+        
 
             <FriendsProvider>
                 <EventsProvider>
