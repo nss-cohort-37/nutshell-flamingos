@@ -5,10 +5,12 @@ import { NewsProvider } from "./news/NewsProvider";
 import { EventsProvider } from "./events/EventsProvider";
 import EventsList from "./events/EventsList";
 import { FriendsProvider } from "./user/FriendsProvider";
-import NewsList from "./news/NewsList"
+
 import TasksForm from "./tasks/TasksForm"
 import { TasksProvider } from "./tasks/TasksProvider";
-import NewsForm from "./news/NewsForm"
+
+import NewsList from "./news/NewsList";
+import NewsForm from "./news/NewsForm";
 import EventsForm from "./events/EventsForm";
 import {MessagesProvider} from "./messages/MessagesProvider";
 import MessagesList from "./messages/MessagesList";
@@ -56,8 +58,7 @@ export default (props) => {
                   <Route exact path="/tasks/create" render={
                                   props => <TasksForm {...props} />
                               } />
-            </TasksProvider>
-
+                    </TasksProvider>
             <MessagesProvider>
                     <Route exact path="/" render={
                         props => <MessagesList {...props} />
