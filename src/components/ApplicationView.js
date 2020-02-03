@@ -39,15 +39,7 @@ export default (props) => {
 
             </NewsProvider>
 
-            <MessagesProvider>
-                
-                    <Route exact path="/" render={
-                        props => <MessagesList {...props} />
-                    } />
-                    <Route path="/messages/edit/:messagesId(\d+)" render={
-                        props => <MessageForm {...props} />
-                    } />
-            </MessagesProvider>
+          
             
             <NewsProvider>
                 <FriendsProvider>
@@ -67,19 +59,17 @@ export default (props) => {
             </NewsProvider>
 
             
+         
             <MessagesProvider>
                 
-                    <Route exact path="/" render={
-                        props => <MessagesList {...props} />
-                    } />
-            
+                <Route exact path="/" render={
+                    props => <MessagesList {...props} />
+                } />
                 
-                    <Route exact path="/" render={
-                        props => <MessageForm {...props} />
-                    } />
-                   
-                
-            </MessagesProvider>
+                <Route  path="/messages/edit/:messagesId(\d+)" render={
+                    props => <MessageForm {...props} />
+                } />
+        </MessagesProvider>
 
             <FriendsProvider>
                 <EventsProvider>

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 
 import { MessagesContext } from "./MessagesProvider";
+import "./Messages.css"
 
 export default ({ message, history }) => {
   const { deleteMessage } = useContext(MessagesContext);
@@ -19,26 +20,20 @@ export default ({ message, history }) => {
             Edit
           </button>
 
-          <button
-            onClick={() => {
-              deleteMessage(message).then(() => {
-                history.push("/message");
-              });
-            }}
-          >
-            Delete
-          </button>
+          
         </>
       );
     }
   }
 
   return (
-    <section className="Message_List">
-      <div className="Message__title">{message.message}</div>
+    <section className="message--card">
+      <div className="message--info">
+        <div className="Message__url">{message.user.name} - </div>
+        <div className="message--name">{message.message}</div>
+      </div>
 
-      <div className="Message__url">posted by {message.user.name}</div>
-      <div className="Message__url">posted by {message.date}</div>
+      <div className="news__author">posted on {new Date(message.date).toLocaleDateString('en-US')}</div>
       <div>{LoggedInUserButtons()}</div>
 
       {/* <button onClick={() => {

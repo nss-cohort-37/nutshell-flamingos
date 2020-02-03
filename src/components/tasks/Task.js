@@ -33,6 +33,7 @@ const checkbox = ()=>{
       }}></input>
       <button onClick={() => {
         history.push(`/tasks/edit/${task.id}`)
+
       }}>Edit</button>
       </>
   }

@@ -2,9 +2,13 @@
 // filter over array of friends and invoke .js function before every event whos userId matches current userId
 // 
 import React, { useContext } from "react"
-import { MessagesContext } from "./MessagesProvider"
+import { MessagesContext, MessagesProvider } from "./MessagesProvider"
 import Message from "./Message"
 import "./Message"
+import MessageForm from "./MessageForm";
+import { Route } from "react-router-dom"
+
+
 
 
 
@@ -20,9 +24,11 @@ export default (props) => {
       <div className= "messagesContainer">
           <h1 className="page--title">Messages</h1>
 
-          <button onClick={() => props.history.push("/message/create")}>
-            New Message
-          </button>
+          <Route exact path="/" render={
+                        props => <MessageForm {...props} />
+                    } />
+               
+    
           <div className="message">
               {
                   currentUserMessages.map(message => {
