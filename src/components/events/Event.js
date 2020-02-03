@@ -31,11 +31,17 @@ export default ({ event, history }) => {
  
 
     return(
-        <section className="event__list">
-            <h4 className="event__name">{ event.name }</h4>
-            <div className="event__location">Location: { event.location }</div>
-            <div className="event__date">Date: { event.date }</div>
-            <div className="event__posted">posted by {event.user.name}</div>
+        <section className="event--card">
+            <h4 className="event--name">{ event.name }</h4>
+            <div className="event--content">
+              <div className="event__location">Location: { event.location }</div>
+              <div className="event--date">Date: { event.date }</div>
+
+              <span classname="event--authors">
+                <div className="event--author">posted by {event.user.name}</div>
+              </span>
+
+            </div>
 
             <div>{LoggedInUserButtons()}</div>
 

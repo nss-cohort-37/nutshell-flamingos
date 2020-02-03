@@ -18,7 +18,7 @@ export default (props) => {
   return (
       <>
       <div className= "messagesContainer">
-          <h1>Messages</h1>
+          <h1 className="page--title">Messages</h1>
 
           <button onClick={() => props.history.push("/message/create")}>
             New Message

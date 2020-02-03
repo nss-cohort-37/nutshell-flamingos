@@ -87,7 +87,7 @@ export default (props) => {
   return (
           
     <div className="friends">
-      <h1>Friends</h1>
+      <h1 className="page--title">Friends</h1>
       <div className="friendForm">
         <input
             type="text"

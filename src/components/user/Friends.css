@@ -12,16 +12,17 @@
     height: max-content;
 }
 .friendSearch {
-    max-width: fit-content;
+    width: 100%;
     min-height: auto;
 }
 
 .friendForm {
     display:flex;
+    justify-content: center
 }
 
 .friendbtn{
-    min-width: max-content;
+    min-width: fit-content;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     margin-left: -3px  !important; 
@@ -61,4 +62,14 @@
     padding-top: .5em;
     padding-bottom: .25em;
     margin-block-start: 0 !important;
+}
+
+.page--title {
+    color: #1d623c;
+    letter-spacing: 25px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-block-start: 0 !important;
+    padding-top: .5em;
+    padding-bottom: .25em;
 }

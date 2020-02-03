@@ -34,7 +34,7 @@ export default (props) => {
 
   return (
     <div className="newsContainer">
-      <h1>News</h1>
+      <h1 className="page--title">News</h1>
       <button onClick={
         () => props.history.push("/news/create")}>
         Add News

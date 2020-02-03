@@ -62,17 +62,6 @@ export default (props) => {
                 </FriendsProvider>
             </NewsProvider>
 
-            <TasksProvider>
-                    <Route  path="/" render ={
-                        props => <TasksList { ...props} />
-                    } />
-
-                    <Route exact path="/tasks/create" render={
-                        props => <TasksForm {...props} />
-                    } />
-            </TasksProvider>
-            
-
             <FriendsProvider>
                 <EventsProvider>
                     <Route exact path="/events" render={
@@ -88,6 +77,17 @@ export default (props) => {
                     } />
                 </EventsProvider>
             </FriendsProvider>
+            <TasksProvider>
+                    <Route  path="/" render ={
+                        props => <TasksList { ...props} />
+                    } />
+
+                    <Route exact path="/tasks/create" render={
+                        props => <TasksForm {...props} />
+                    } />
+            </TasksProvider>
+            
+
 
 
 
