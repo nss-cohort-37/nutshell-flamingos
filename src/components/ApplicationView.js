@@ -19,18 +19,20 @@ import TasksList from "./tasks/TasksList"
 export default (props) => {
     return (
         <>
+        <MessagesProvider>
             <UserProvider>
                 <FriendsProvider>
                 <Route  path="/" render={
-                        props => <FriendsList {...props} />
-                    } />
+                    props => <FriendsList {...props} />
+                } />
+
                 </FriendsProvider>
             </UserProvider>
+        </MessagesProvider>
 
             <NewsProvider>
 
             </NewsProvider>
-
 
 
             <NewsProvider>
@@ -41,11 +43,6 @@ export default (props) => {
                     <Route exact path="/news/create" render={
                         props => <NewsForm {...props} />
                     } />
-
-
-
-
-
                     <Route path="/news/edit/:newsId(\d+)" render={
                         props => <NewsForm {...props} />
                     } />
@@ -59,14 +56,12 @@ export default (props) => {
                   <Route exact path="/tasks/create" render={
                                   props => <TasksForm {...props} />
                               } />
-                    </TasksProvider>
+            </TasksProvider>
+
             <MessagesProvider>
-                
                     <Route exact path="/" render={
                         props => <MessagesList {...props} />
                     } />
-                   
-                
             </MessagesProvider>
 
             <FriendsProvider>

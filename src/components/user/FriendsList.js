@@ -8,10 +8,9 @@ import FriendSearch from "./FriendSearch";
 
 
 export default (props) => {
-    const contentTarget = document.querySelector(".friendsSearchList")
   const { friends, addFriends } = useContext(FriendsContext)
   const { users } = useContext(UserContext)
-  const [nonFriend, setNonFriend] = useState({});
+  // const [nonFriend, setNonFriend] = useState({});
 //   const [friend, setFriend] = useState({});
   const friendName = useRef("");
   const currentUser = parseInt(localStorage.getItem("currentUserId"), 10)
@@ -25,7 +24,6 @@ export default (props) => {
          users.find(
                 u => {
                     if (u.id === friend.friendId) {
-                        console.log(u);
                         arrayOfUsersFriendsObjects.push(u)
                         
                     }
@@ -57,24 +55,35 @@ export default (props) => {
         if (foundUserArray[0] === undefined) {
             alert("User not found");
           } else {
-
-              foundUserArray.map(user => {
-                    searchResultsArray.push(user)
-              })
+            const foundExistingFriend = friends.find(
+              f =>
+                f.userId === foundUserArray[0].id &&
+                currentUser === f.friendId
+            );
+            if (currentUser !== foundUserArray[0].id) {
+              if (foundExistingFriend === undefined) {
+                window.confirm(`Would you like to add ${foundUserArray[0].name} as a friend?`)
+                addFriends({
+                  friendId: foundUserArray[0].id,
+                  userId: currentUser
+                })
+                .then(() => {friendName.current.value = ""})
+      
+              } else {
+                alert("User is already a friend")
+                {friendName.current.value = ""}
+      
+              }
+            } else {
+              alert("You can't add yourself, dummy")
+              {friendName.current.value = ""}
+      
+            }
           }
       };
         
       console.log(searchResultsArray);
       
-    const printNewArray = () => {
-        contentTarget.innerHTML= 
-
-            searchResultsArray.map(user => {
-              return `<h3>${user.name}</h3>`
-            }).join("")
-  
-          
-    }
   return (
     <div className="news">
       <h1>Friends</h1>
@@ -96,25 +105,22 @@ export default (props) => {
             onClick={evt => {
             evt.preventDefault();
             constructNewFriendArray();
-            printNewArray()
             }}
             className="btn btn-primary"
-        >Search</button>
+        >Add</button>
       </div>
 
       <article className="friendsList">
         {
           arrayOfUsersFriendsObjects.map(user => {
-            return <Friend key={user.id} user={user} />
+            return <Friend key={user.id} user={user} props={props}/>
           })
 
         }
       </article>
 
       <article className="friendsSearchList">
-          
-
-        
+ 
       </article>
 
     </div>

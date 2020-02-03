@@ -25,7 +25,6 @@ export default (props) => {
           <div className="message">
               {
                   currentUserMessages.map(message => {
-                    console.log("Displaying tasks")
                       return <Message key={message.id} message={message} />
                   })
               }
