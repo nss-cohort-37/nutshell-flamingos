@@ -1,10 +1,10 @@
 import React, { useContext, useState, useEffect } from "react"
-import { TasksContext } from "./TasksProvider"
+import { TaskContext } from "./TasksProvider"
 
 
 
 export default props => {
-    const { addTasks, tasks, updateTask } = useContext(TasksContext)
+    const { addTasks, tasks, editTasks } = useContext(TaskContext)
     const [task, setTask] = useState({})
 
     const editMode = props.match.params.hasOwnProperty("taskId")
@@ -36,9 +36,10 @@ export default props => {
 
         
             if (editMode) {
-                updateTask({
-                  
+                editTasks({
+                    id: task.id,
                     text: task.text,
+                    userId: parseInt(localStorage.getItem("currentUserId"))
                   
                  
                 })
@@ -71,44 +72,6 @@ export default props => {
                     />
                 </div>
             </fieldset>
-            {/* <fieldset>
-                <div className="form-group">
-                    <label htmlFor="breed">Animal breed: </label>
-                    <input type="text" name="breed" required className="form-control"
-                        proptype="varchar"
-                        placeholder="Animal breed"
-                        defaultValue={animal.breed}
-                        onChange={handleControlledInputChange}
-                    />
-                </div>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="locationId">Location: </label>
-                    <select name="locationId" className="form-control"
-                        proptype="int"
-                        value={animal.locationId}
-                        onChange={handleControlledInputChange}>
-
-                        <option value="0">Select a location</option>
-                        {locations.map(e => (
-                            <option key={e.id} value={e.id}>
-                                {e.name}
-                            </option>
-                        ))}
-                    </select>
-                </div>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="treatment">Treatments: </label>
-                    <textarea type="text" name="treatment" className="form-control"
-                        proptype="varchar"
-                        value={animal.treatment}
-                        onChange={handleControlledInputChange}>
-                    </textarea>
-                </div>
-                        </fieldset> */}
             <button type="submit"
                 onClick={evt => {
                     evt.preventDefault()
