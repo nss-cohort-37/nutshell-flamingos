@@ -29,8 +29,8 @@ export default (props) => {
 
 
     return (
-            <div className="events">
-                <h1>Events</h1>
+            <div className="eventsContainer">
+                <h1 className="page--title">Events</h1>
 
                 <button onClick={() => props.history.push("/events/create")}>
                     New Event

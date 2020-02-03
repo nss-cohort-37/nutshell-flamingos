@@ -4,11 +4,11 @@ import { UserProvider } from "./user/UserProvider"
 import { NewsProvider } from "./news/NewsProvider";
 import { EventsProvider } from "./events/EventsProvider";
 import { FriendsProvider } from "./user/FriendsProvider";
-import {MessagesProvider} from "./messages/MessagesProvider";
+import NewsList from "./news/NewsList"
+import TasksForm from "./tasks/TasksForm"
 import { TasksProvider } from "./tasks/TasksProvider";
+import {MessagesProvider} from "./messages/MessagesProvider";
 
-import TasksForm from "./tasks/TasksForm";
-import NewsList from "./news/NewsList";
 import NewsForm from "./news/NewsForm";
 import EventsList from "./events/EventsList";
 import EventsForm from "./events/EventsForm";
@@ -22,16 +22,35 @@ import MessageForm from "./messages/MessageForm"
 export default (props) => {
     return (
         <>
+            
+        <MessagesProvider>
             <UserProvider>
                 <FriendsProvider>
                 <Route  path="/" render={
-                        props => <FriendsList {...props} />
-                    } />
+                    props => <FriendsList {...props} />
+                } />
+
                 </FriendsProvider>
             </UserProvider>
+        </MessagesProvider>
+
 
             <NewsProvider>
+
+            </NewsProvider>
+
+            <MessagesProvider>
+                
+                    <Route exact path="/" render={
+                        props => <MessagesList {...props} />
+                    } />
+                   
+            </MessagesProvider>
+            
+            <NewsProvider>
                 <FriendsProvider>
+                    
+
                     <Route exact path="/news" render={
                         props => <NewsList {...props} />
                     } />
@@ -39,25 +58,13 @@ export default (props) => {
                     <Route exact path="/news/create" render={
                         props => <NewsForm {...props} />
                     } />
-
                     <Route path="/news/edit/:newsId(\d+)" render={
                         props => <NewsForm {...props} />
                     } />
                 </FriendsProvider>
             </NewsProvider>
 
-            <TasksProvider>
-                  <Route path="/" render ={
-                            props => <TasksList { ...props} />
-                        } />
-                  <Route path="/tasks/create" render={
-                                  props => <TasksForm {...props} />
-                              } />
-                  <Route path="/tasks/edit/:taskId(\d+)" render={
-                        props => <TasksForm {...props} />
-                    } />
-
-            </TasksProvider>
+            
             <MessagesProvider>
                 
                     <Route exact path="/" render={
@@ -87,6 +94,24 @@ export default (props) => {
                     } />
                 </EventsProvider>
             </FriendsProvider>
+            <TasksProvider>
+            <Route path="/" render ={
+                            props => <TasksList { ...props} />
+                        } />
+                  <Route path="/tasks/create" render={
+                                  props => <TasksForm {...props} />
+                              } />
+                  <Route path="/tasks/edit/:taskId(\d+)" render={
+                        props => <TasksForm {...props} />
+                    } />
+
+            </TasksProvider>
+            
+
+
+
+
+
 
            
         </>

@@ -62,22 +62,23 @@ const Login = props => {
         <main className="container--login">
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Flamingo Nutshell</h1>
-                    <h2>Please sign in</h2>
+                    <h1 className="login--header">FLAMINGO</h1>
+                 
+                    <h2>please sign in</h2>
                     <fieldset>
-                        <label htmlFor="inputEmail"> Email address </label>
+                        <label htmlFor="inputEmail"> email </label>
                         <input ref={email} type="email"
                             id="email"
                             className="form-control"
-                            placeholder="Email address"
+                            placeholder="email"
                             required autoFocus />
                     </fieldset>
                     <fieldset>
-                        <label htmlFor="inputPassword"> Password </label>
+                        <label htmlFor="inputPassword"> password </label>
                         <input ref={password} type="password"
                             id="password"
                             className="form-control"
-                            placeholder="Password"
+                            placeholder="password"
                             required />
                     </fieldset>
                     <fieldset>
@@ -85,10 +86,10 @@ const Login = props => {
                             Sign in
                     </button>
                     </fieldset>
-                </form>
-            </section>
             <section className="link--register">
                 <Link to="/register">Not a member yet?</Link>
+            </section>
+                </form>
             </section>
         </main>
     )

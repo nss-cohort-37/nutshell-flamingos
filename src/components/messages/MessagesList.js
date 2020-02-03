@@ -17,7 +17,8 @@ export default (props) => {
 
   return (
       <>
-          <h1>Messages</h1>
+      <div className= "messagesContainer">
+          <h1 className="page--title">Messages</h1>
 
           <button onClick={() => props.history.push("/message/create")}>
             New Message
@@ -25,11 +26,11 @@ export default (props) => {
           <div className="message">
               {
                   currentUserMessages.map(message => {
-                    console.log("Displaying tasks")
                       return <Message key={message.id} message={message} />
                   })
               }
           </div>
+      </div>
       </>
   )
 }

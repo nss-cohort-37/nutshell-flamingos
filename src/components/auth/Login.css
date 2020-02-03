@@ -1,5 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Manjari|Noto+Sans+TC&display=swap');
+
 .h1, h1 {
     font-size: 2.5rem;
+    font-family: 'Noto Sans TC', sans-serif;
+
+}
+
+.login--header {
+    letter-spacing: .5em;
 }
 
 fieldset {
@@ -26,6 +34,7 @@ fieldset {
 }
 
 .form-control {
+    margin-top: 10px;
     display: block;
     width: 100%;
     height: calc(1.5em + .75rem + 2px);
@@ -44,15 +53,27 @@ fieldset {
 
 .container--login {
     text-align: center;
+  
+}
+
+body {
+    background-image: url(login.jpg);
+    background-position: cover;
+    background-size: 100%;
+    background-attachment: fixed;
 }
 
 .form--login {
+    color: #1d623c;
+    margin-top: 8%;
     z-index: 1;
+    width: 40%;
     min-height: 25rem;
-    min-width: 45rem;
-    background-color: hsla(0,0%,100%,0.40);
+    min-width: 30rem;
+    background-color: #fff; 
     background-blend-mode: overlay;
-    background-repeat: no-repeat;
+    /* border: 5px solid #1d623c; */
+    border-radius: 8px;
 }
 
 form.form--login {
@@ -61,3 +82,15 @@ form.form--login {
         /* border: 1px solid #eee; */
         padding: 20px;
     }
+
+.link--register {
+    margin-top: 1em;
+    margin-bottom: 2em;   
+}
+
+a{
+    color:#1d623c;
+    /* text-decoration: none; */
+
+}
+

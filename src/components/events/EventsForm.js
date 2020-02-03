@@ -49,6 +49,8 @@ export default props => {
   };
 
   return (
+    <div className="eventsContainer">
+
     <form className="newEvent">
       <h2 className="newEvent__name">
         {editMode ? "Update Event" : "Add Event"}
@@ -67,7 +69,7 @@ export default props => {
             placeholder="Event name"
             defaultValue={event.name}
             onChange={handleControlledInputChange}
-          />
+            />
         </div>
       </fieldset>
 
@@ -83,7 +85,7 @@ export default props => {
             placeholder="ex: Nashville"
             defaultValue={event.location}
             onChange={handleControlledInputChange}
-          />
+            />
         </div>
       </fieldset>
 
@@ -109,8 +111,12 @@ export default props => {
         {editMode ? "Save Updates" : "Save Event"}
       </button>
     </form>
-  );
-};
+        </div>
+  )
+}
+
+
+
 
 // contorl component
 // handle edit functionality and building new event object
