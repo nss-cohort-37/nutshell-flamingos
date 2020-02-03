@@ -9,8 +9,8 @@ export default ({ news, history }) => (
             <div className="news__synopsis">{news.synopsis}</div>
             <div className="news__url">{news.url}</div>
             <div className="news__author__container"> 
-                <div className="news__author">posted by {news.user.name}</div>
-                <div className="news__author">on {news.date}</div>
+            <div className="news__author">posted by {news.user.name}</div>
+            <div className="news__author">posted on {new Date(news.date).toLocaleDateString('en-US')} </div>
             </div>
         </div>
         <button onClick={() => {
