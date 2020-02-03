@@ -17,7 +17,7 @@ export default props => {
     setMessage(newMessage);
   };
 
-     const setDefaults = () => {
+  const setDefaults = () => {
     if (editMode) {
       const MessagesId = parseInt(props.match.params.MessagesId);
       const selectedMessages = Messages.find(e => e.id === MessagesId) || {};
@@ -26,7 +26,7 @@ export default props => {
   };
 
   useEffect(() => {
-     setDefaults();
+    setDefaults();
   }, [Messages]);
 
   const constructNewMessage = () => {
@@ -34,14 +34,12 @@ export default props => {
       editMessages({
         id: Message.id,
         name: Message.name,
-        location: Message.location,
         date: Message.date,
         userId: parseInt(localStorage.getItem("currentUserId"))
       }).then(() => props.history.push("/Messages"));
     } else {
       addMessages({
         name: Message.name,
-        location: Message.location,
         date: Message.date,
         userId: parseInt(localStorage.getItem("currentUserId"))
       }).then(() => props.history.push("/Messages"));
@@ -70,38 +68,6 @@ export default props => {
           />
         </div>
       </fieldset>
-
-      <fieldset>
-        <div className="form-group">
-          <label htmlFor="location">Location: </label>
-          <input
-            type="text"
-            name="location"
-            required
-            className="form-control"
-            proptype="varchar"
-            placeholder="ex: Nashville"
-            defaultValue={Message.location}
-            onChange={handleControlledInputChange}
-          />
-        </div>
-      </fieldset>
-
-      <fieldset>
-        <div className="form-group">
-          <label htmlFor="date">Date: </label>
-          <input
-            type="text"
-            name="date"
-            className="form-control"
-            proptype="varchar"
-            placeholder="ex: 9/16/2020"
-            value={Message.date}
-            onChange={handleControlledInputChange}
-          ></input>
-        </div>
-      </fieldset>
-
       <button
         type="submit"
         onClick={msg => {

@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 
-import { MessageContext } from "./MessageProvider";
+import { MessagesContext } from "./MessagesProvider";
 
 export default ({ message, history }) => {
-  const { deleteMessage } = useContext(MessageContext);
+  const { deleteMessage } = useContext(MessagesContext);
 
   // Display conditional buttons
 
