@@ -48,12 +48,11 @@ export default props => {
   return (
     <form className="newMessage">
       <h2 className="newMessage__name">
-        {editMode ? "Update Messages" : "Add Message"}
+        {editMode ? "Update Messages" : "New Message:"}
       </h2>
 
       <fieldset>
         <div className="form-group">
-          <label htmlFor="text">Message message: </label>
           <input
             type="text"
             name="text"
@@ -61,7 +60,7 @@ export default props => {
             autoFocus
             className="form-control"
             proptype="varchar"
-            placeholder="Message message"
+            placeholder="type something..."
             defaultValue={message.text}
             onChange={handleControlledInputChange}
           />
