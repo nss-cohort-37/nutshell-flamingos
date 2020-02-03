@@ -6,8 +6,9 @@ import { EventsProvider } from "./events/EventsProvider";
 import { FriendsProvider } from "./user/FriendsProvider";
 import {MessagesProvider} from "./messages/MessagesProvider";
 import { TasksProvider } from "./tasks/TasksProvider";
-import NewsList from "./news/NewsList";
+
 import TasksForm from "./tasks/TasksForm";
+import NewsList from "./news/NewsList";
 import NewsForm from "./news/NewsForm";
 import EventsList from "./events/EventsList";
 import EventsForm from "./events/EventsForm";
