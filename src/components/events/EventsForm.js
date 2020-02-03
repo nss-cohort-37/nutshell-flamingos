@@ -1,39 +1,35 @@
-import React, { useContext, useState, useEffect } from "react"
-import { EventsContext } from "./EventsProvider"
-
-
+import React, { useContext, useState, useEffect } from "react";
+import { EventsContext } from "./EventsProvider";
 
 export default props => {
-  const { events, addEvents, editEvents } = useContext(EventsContext)
-  const [event, setEvents] = useState({})
+  const { events, addEvents, editEvents } = useContext(EventsContext);
+  const [event, setEvents] = useState({});
 
-  const editMode = props.match.params.hasOwnProperty("eventsId")
+  const editMode = props.match.params.hasOwnProperty("eventsId");
 
-  const handleControlledInputChange = (evt) => {
+  const handleControlledInputChange = evt => {
     /*
         When changing a state object or array, always create a new one
         and change state instead of modifying current one
     */
-    const newEvent = Object.assign({}, event)
-    newEvent[evt.target.name] = evt.target.value
-    setEvents(newEvent)
-  }
+    const newEvent = Object.assign({}, event);
+    newEvent[evt.target.name] = evt.target.value;
+    setEvents(newEvent);
+  };
 
   const setDefaults = () => {
     if (editMode) {
-      const eventsId = parseInt(props.match.params.eventsId)
-      const selectedEvent = events.find(e => e.id === eventsId) || {}
-      setEvents(selectedEvent)
+      const eventsId = parseInt(props.match.params.eventsId);
+      const selectedEvent = events.find(e => e.id === eventsId) || {};
+      setEvents(selectedEvent);
     }
-  }
+  };
 
   useEffect(() => {
-    setDefaults()
-  }, [events])
+    setDefaults();
+  }, [events]);
 
   const constructNewEvent = () => {
-    
-
     if (editMode) {
       editEvents({
         id: event.id,
@@ -41,31 +37,34 @@ export default props => {
         location: event.location,
         date: event.date,
         userId: parseInt(localStorage.getItem("currentUserId"))
-      })
-        .then(() => props.history.push("/events"))
+      }).then(() => props.history.push("/events"));
     } else {
       addEvents({
-        
         name: event.name,
         location: event.location,
         date: event.date,
         userId: parseInt(localStorage.getItem("currentUserId"))
-      })
-        .then(() => props.history.push("/events"))
+      }).then(() => props.history.push("/events"));
     }
-
-  }
+  };
 
   return (
     <div className="eventsContainer">
 
     <form className="newEvent">
-      <h2 className="newEvent__name">{editMode ? "Update Event" : "Add Event"}</h2>
-      
+      <h2 className="newEvent__name">
+        {editMode ? "Update Event" : "Add Event"}
+      </h2>
+
       <fieldset>
         <div className="form-group">
           <label htmlFor="name">Event name: </label>
-          <input type="text" name="name" required autoFocus className="form-control"
+          <input
+            type="text"
+            name="name"
+            required
+            autoFocus
+            className="form-control"
             proptype="varchar"
             placeholder="Event name"
             defaultValue={event.name}
@@ -77,7 +76,11 @@ export default props => {
       <fieldset>
         <div className="form-group">
           <label htmlFor="location">Location: </label>
-          <input type="text" name="location" required className="form-control"
+          <input
+            type="text"
+            name="location"
+            required
+            className="form-control"
             proptype="varchar"
             placeholder="ex: Nashville"
             defaultValue={event.location}
@@ -86,24 +89,25 @@ export default props => {
         </div>
       </fieldset>
 
-
       <fieldset>
         <div className="form-group">
           <label htmlFor="date">Date: </label>
           <input type="date" name="date" className="form-control"
             proptype="varchar"
             value={event.date}
-            onChange={handleControlledInputChange}>
-          </input>
+            onChange={handleControlledInputChange}
+          ></input>
         </div>
       </fieldset>
 
-      <button type="submit"
+      <button
+        type="submit"
         onClick={evt => {
-          evt.preventDefault()
-          constructNewEvent()
+          evt.preventDefault();
+          constructNewEvent();
         }}
-        className="btn btn-primary">
+        className="btn btn-primary"
+      >
         {editMode ? "Save Updates" : "Save Event"}
       </button>
     </form>
@@ -117,4 +121,4 @@ export default props => {
 // contorl component
 // handle edit functionality and building new event object
 // render event form
-// 
+//
