@@ -36,13 +36,13 @@ export default props => {
         name: Message.name,
         date: Message.date,
         userId: parseInt(localStorage.getItem("currentUserId"))
-      }).then(() => props.history.push("/Messages"));
+      }).then(() => props.history.push("/"));
     } else {
       addMessages({
         name: Message.name,
         date: Message.date,
         userId: parseInt(localStorage.getItem("currentUserId"))
-      }).then(() => props.history.push("/Messages"));
+      }).then(() => props.history.push("/"));
     }
   };
 

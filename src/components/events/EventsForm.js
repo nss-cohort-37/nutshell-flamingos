@@ -90,12 +90,8 @@ export default props => {
       <fieldset>
         <div className="form-group">
           <label htmlFor="date">Date: </label>
-          <input
-            type="text"
-            name="date"
-            className="form-control"
+          <input type="date" name="date" className="form-control"
             proptype="varchar"
-            placeholder="ex: 9/16/2020"
             value={event.date}
             onChange={handleControlledInputChange}
           ></input>
