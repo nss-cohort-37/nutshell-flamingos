@@ -22,7 +22,7 @@ export default props => {
   const setDefaults = () => {
     if (editMode) {
       const eventsId = parseInt(props.match.params.eventsId)
-      const selectedEvent = event.find(e => e.id === eventsId) || {}
+      const selectedEvent = events.find(e => e.id === eventsId) || {}
       setEvents(selectedEvent)
     }
   }
@@ -108,14 +108,6 @@ export default props => {
     </form>
   )
 }
-
-
-
-
-
-
-
-
 
 
 

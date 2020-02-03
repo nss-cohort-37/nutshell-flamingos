@@ -3,16 +3,15 @@ import { Route } from "react-router-dom"
 import { UserProvider } from "./user/UserProvider"
 import { NewsProvider } from "./news/NewsProvider";
 import { EventsProvider } from "./events/EventsProvider";
-import EventsList from "./events/EventsList";
 import { FriendsProvider } from "./user/FriendsProvider";
-
-import TasksForm from "./tasks/TasksForm"
+import {MessagesProvider} from "./messages/MessagesProvider";
 import { TasksProvider } from "./tasks/TasksProvider";
 
+import TasksForm from "./tasks/TasksForm";
 import NewsList from "./news/NewsList";
 import NewsForm from "./news/NewsForm";
+import EventsList from "./events/EventsList";
 import EventsForm from "./events/EventsForm";
-import {MessagesProvider} from "./messages/MessagesProvider";
 import MessagesList from "./messages/MessagesList";
 import FriendsList from "./user/FriendsList";
 import TasksList from "./tasks/TasksList"
@@ -30,23 +29,14 @@ export default (props) => {
             </UserProvider>
 
             <NewsProvider>
-
-            </NewsProvider>
-
-
-
-            <NewsProvider>
                 <FriendsProvider>
                     <Route exact path="/news" render={
                         props => <NewsList {...props} />
                     } />
+
                     <Route exact path="/news/create" render={
                         props => <NewsForm {...props} />
                     } />
-
-
-
-
 
                     <Route path="/news/edit/:newsId(\d+)" render={
                         props => <NewsForm {...props} />
@@ -56,12 +46,13 @@ export default (props) => {
 
             <TasksProvider>
                     <Route exact path="/" render ={
-                            props => <TasksList { ...props} />
-                        } />
-                  <Route exact path="/tasks/create" render={
-                                  props => <TasksForm {...props} />
-                              } />
-                    </TasksProvider>
+                        props => <TasksList { ...props} />
+                    } />
+
+                    <Route exact path="/tasks/create" render={
+                        props => <TasksForm {...props} />
+                    } />
+            </TasksProvider>
             <MessagesProvider>
                 
                     <Route exact path="/" render={
