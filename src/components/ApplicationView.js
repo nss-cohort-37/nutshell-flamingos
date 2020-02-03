@@ -37,13 +37,6 @@ export default (props) => {
 
             </NewsProvider>
 
-            <MessagesProvider>
-                
-                    <Route exact path="/" render={
-                        props => <MessagesList {...props} />
-                    } />
-                   
-            </MessagesProvider>
             
             <NewsProvider>
                 <FriendsProvider>
