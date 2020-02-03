@@ -63,7 +63,7 @@ export default props => {
 
   return (
    
-
+<div className="newsContainer">
     <form className="newsNews">
       <h2 className="newsNews__title">{editMode ? "Update News" : "Add News"}</h2>
       
@@ -113,6 +113,7 @@ export default props => {
         {editMode ? "Save Updates" : "Save News"}
       </button>
     </form>
+    </div>
   )
 }
 

@@ -7,6 +7,9 @@ export default ({ user }) => (
         { user.name }
         </h3>
         <button className="friend--message">message</button>
+        {/* <button onClick={() => props.history.push("/message/create")}>
+            Message
+          </button> */}
     </section>
 )
 

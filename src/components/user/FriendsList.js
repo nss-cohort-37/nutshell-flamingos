@@ -1,54 +1,131 @@
-import React, { useContext } from "react"
+import React, { useContext, useState, useRef } from "react"
 import { FriendsContext } from "../user/FriendsProvider"
 import { UserContext } from "./UserProvider";
 import Friend from "./Friend";
 import { array } from "prop-types";
-
+import FriendSearch from "./FriendSearch";
 
 
 
 export default (props) => {
-  const { friends } = useContext(FriendsContext)
+  const { friends, addFriends } = useContext(FriendsContext)
   const { users } = useContext(UserContext)
+  // const [nonFriend, setNonFriend] = useState({});
+//   const [friend, setFriend] = useState({});
+  const friendName = useRef("");
   const currentUser = parseInt(localStorage.getItem("currentUserId"), 10)
+
+
   const usersFriends = friends.filter(f => f.userId === currentUser)
-  console.log(usersFriends);
+
   let arrayOfUsersFriendsObjects =[]
     
     usersFriends.map(friend => {
          users.find(
                 u => {
                     if (u.id === friend.friendId) {
-                        console.log(u);
                         arrayOfUsersFriendsObjects.push(u)
                         
                     }
                   })
                 
               })
-              console.log(arrayOfUsersFriendsObjects);
               
-    // const currentUserNews = news.filter(news => news.userId === currentUser)
-    // const combinedNewsArray = currentUserNews.concat(friendsNewsArray)
+            
+    // const handleControlledInputChange = event => {
+
+    //     const newFriend = Object.assign({}, friend);
+    //     newFriend[event.target.name] = event.target.value;
+    //     setFriend(newFriend);
+
+    // };
+
     
 
-
-
-  return (
-    <div className="stickyWrapper">
-        <div className="friends">
-          <h1>Friends</h1>
+    let searchResultsArray = []
+    const constructNewFriendArray = () => {
+        const searchTerm = friendName.current.value.toUpperCase() 
         
-          <article className="friendsList">
-            {
-              
-              arrayOfUsersFriendsObjects.map(user => {
-                return <Friend key={user.id} user={user} />
-              })
-              
+        const foundUserArray = users.filter(user => {
+            if (user.name.toUpperCase().includes(searchTerm) || user.email.includes(searchTerm)) {
+              return user
+            } 
+        })
+        
+        if (foundUserArray[0] === undefined) {
+            alert("User not found");
+          } else {
+            const foundExistingFriend = friends.find(
+              f =>
+                f.userId === foundUserArray[0].id &&
+                currentUser === f.friendId
+            );
+            if (currentUser !== foundUserArray[0].id) {
+              if (foundExistingFriend === undefined) {
+                window.confirm(`Would you like to add ${foundUserArray[0].name} as a friend?`)
+                addFriends({
+                  friendId: foundUserArray[0].id,
+                  userId: currentUser
+                })
+                .then(() => {friendName.current.value = ""})
+      
+              } else {
+                alert("User is already a friend")
+                {friendName.current.value = ""}
+      
+              }
+            } else {
+              alert("You can't add yourself, dummy")
+              {friendName.current.value = ""}
+      
             }
-          </article>
-        </div>
+          }
+      };
+        
+      console.log(searchResultsArray);
+      
+  return (
+          
+    <div className="friends">
+      <h1>Friends</h1>
+      <div className="friendForm">
+        <input
+            type="text"
+            name="name"
+            id="friendName"
+            ref={friendName}
+            required
+            className="form-control"
+            className="friendSearch"
+            proptype="varchar"
+            placeholder="search for a user...   "
+            defaultValue={""}
+            // onChange={handleControlledInputChange}
+        />
+            <button
+            type="submit"
+            onClick={evt => {
+            evt.preventDefault();
+            constructNewFriendArray();
+            }}
+            className="btn btn-primary"
+            className="friendbtn"
+        >Add</button>
+      </div>
+
+      <article className="friendsList">
+        {
+          arrayOfUsersFriendsObjects.map(user => {
+            return <Friend key={user.id} user={user} props={props}/>
+          })
+
+        }
+      </article>
+
+      <article className="friendsSearchList">
+ 
+      </article>
+
     </div>
   )
 }

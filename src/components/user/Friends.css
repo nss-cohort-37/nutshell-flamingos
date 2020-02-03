@@ -1,7 +1,7 @@
 .friends {
     display: flex;
     flex-direction: column;
-    flex-basis: 5%;
+    flex-basis: 15%;
     padding: 1em;
     background: rgb(238, 238, 238 );
     border-radius: 10px;
@@ -10,6 +10,23 @@
     position: -webkit-sticky;
     top: 0;
     height: max-content;
+}
+.friendSearch {
+    max-width: fit-content;
+    min-height: auto;
+}
+
+.friendForm {
+    display:flex;
+}
+
+.friendbtn{
+    min-width: max-content;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: -3px  !important; 
+    background-color: #1d623c;
+    color: #fff;
 }
 .stickyWrapper {
     position: sticky;
