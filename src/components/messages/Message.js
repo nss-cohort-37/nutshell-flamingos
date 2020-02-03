@@ -13,7 +13,7 @@ export default ({ message, history }) => {
         <>
           <button
             onClick={() => {
-              history.push(`/message/edit/${message.id}`);
+              history.push(`/messages/edit/${message.id}`);
             }}
           >
             Edit
@@ -35,9 +35,8 @@ export default ({ message, history }) => {
 
   return (
     <section className="Message_List">
-      <div className="Message__title">{message.title}</div>
-      <div className="Message__synopsis">{message.synopsis}</div>
-      <div className="Message__url">{message.url}</div>
+      <div className="Message__title">{message.message}</div>
+
       <div className="Message__url">posted by {message.user.name}</div>
       <div className="Message__url">posted by {message.date}</div>
       <div>{LoggedInUserButtons()}</div>

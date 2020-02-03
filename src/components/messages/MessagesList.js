@@ -26,7 +26,7 @@ export default (props) => {
           <div className="message">
               {
                   currentUserMessages.map(message => {
-                      return <Message key={message.id} message={message} />
+                      return <Message {...props} key={message.id} message={message} />
                   })
               }
           </div>

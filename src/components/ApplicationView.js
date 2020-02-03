@@ -44,7 +44,9 @@ export default (props) => {
                     <Route exact path="/" render={
                         props => <MessagesList {...props} />
                     } />
-                   
+                    <Route path="/messages/edit/:messagesId(\d+)" render={
+                        props => <MessageForm {...props} />
+                    } />
             </MessagesProvider>
             
             <NewsProvider>
