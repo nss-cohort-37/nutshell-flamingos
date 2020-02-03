@@ -4,7 +4,7 @@ import { TaskContext } from "./TasksProvider"
 
 
 export default props => {
-    const { addTasks, tasks, updateTask } = useContext(TaskContext)
+    const { addTasks, tasks, editTasks } = useContext(TaskContext)
     const [task, setTask] = useState({})
 
     const editMode = props.match.params.hasOwnProperty("taskId")
@@ -36,7 +36,7 @@ export default props => {
 
         
             if (editMode) {
-                updateTask({
+                editTasks({
                     id: task.id,
                     text: task.text,
                     userId: parseInt(localStorage.getItem("currentUserId"))

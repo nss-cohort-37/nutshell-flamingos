@@ -32,7 +32,7 @@ const checkbox = ()=>{
           patchTask(patchedTask).then(()=> history.push("/tasks"))
       }}></input>
       <button onClick={() => {
-          history.push(`/tasks/edit/${task.id}`)
+        history.push(`/tasks/edit/${task.id}`)
       }}>Edit</button>
       </>
   }

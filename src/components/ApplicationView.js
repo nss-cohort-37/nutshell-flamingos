@@ -53,17 +53,17 @@ export default (props) => {
             </NewsProvider>
 
             <TasksProvider>
-                    <Route exact path="/" render ={
+                  <Route path="/" render ={
                             props => <TasksList { ...props} />
                         } />
-                  <Route exact path="/tasks/create" render={
+                  <Route path="/tasks/create" render={
                                   props => <TasksForm {...props} />
                               } />
-                        <Route path="/tasks/edit/:tasksId(\d+)" render={
+                  <Route path="/tasks/edit/:taskId(\d+)" render={
                         props => <TasksForm {...props} />
                     } />
 
-                    </TasksProvider>
+            </TasksProvider>
             <MessagesProvider>
                 
                     <Route exact path="/" render={

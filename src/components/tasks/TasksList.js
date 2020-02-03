@@ -22,7 +22,7 @@ export default (props) => {
               {
                   currentUserTasks.map(task => {
                     console.log("Displaying tasks")
-                      return <Task key={task.id} task={task} />
+                      return <Task {...props} key={task.id} task={task} />
                   })
               }
           </div>
