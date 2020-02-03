@@ -13,7 +13,7 @@ export const NewsProvider = (props) => {
     const [news, setNews] = useState([])
 
     const getNews = () => {
-        return fetch("http://localhost:8088/news?_expand=user")
+        return fetch("http://localhost:8088/news")
             .then(res => res.json())
             .then(setNews)
     }
