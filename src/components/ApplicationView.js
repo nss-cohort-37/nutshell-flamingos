@@ -15,8 +15,10 @@ import EventsForm from "./events/EventsForm";
 import MessagesList from "./messages/MessagesList";
 import FriendsList from "./user/FriendsList";
 import TasksList from "./tasks/TasksList"
-
+import MessageForm from "./messages/MessageForm"
 // renders the different page views utilising route
+
+
 export default (props) => {
     return (
         <>
@@ -37,6 +39,7 @@ export default (props) => {
 
             </NewsProvider>
 
+          
             
             <NewsProvider>
                 <FriendsProvider>
@@ -56,14 +59,20 @@ export default (props) => {
             </NewsProvider>
 
             
+         
             <MessagesProvider>
                 
-                    <Route exact path="/" render={
-                        props => <MessagesList {...props} />
-                    } />
-                   
+                <Route exact path="/" render={
+                    props => <MessagesList {...props} />
+                } />
                 
-            </MessagesProvider>
+                    <Route exact path="/" render={
+                        props => <MessageForm {...props} />
+                    } />
+                <Route path="/messages/edit/:messagesId(\d+)" render={
+                    props => <MessageForm {...props} />
+                } />
+        </MessagesProvider>
 
             <FriendsProvider>
                 <EventsProvider>
