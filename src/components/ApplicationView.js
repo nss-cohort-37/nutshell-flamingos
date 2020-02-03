@@ -3,14 +3,22 @@ import { Route } from "react-router-dom"
 import { UserProvider } from "./user/UserProvider"
 import { NewsProvider } from "./news/NewsProvider";
 import { EventsProvider } from "./events/EventsProvider";
-import EventsList from "./events/EventsList";
 import { FriendsProvider } from "./user/FriendsProvider";
+<<<<<<< HEAD
 import TasksForm from "./tasks/TasksForm"
 import { TasksProvider } from "./tasks/TasksProvider";
 import NewsForm from "./news/NewsForm"
 import NewsList from "./news/NewsList";
-import EventsForm from "./events/EventsForm";
+=======
 import {MessagesProvider} from "./messages/MessagesProvider";
+import { TasksProvider } from "./tasks/TasksProvider";
+
+import TasksForm from "./tasks/TasksForm";
+import NewsList from "./news/NewsList";
+import NewsForm from "./news/NewsForm";
+import EventsList from "./events/EventsList";
+>>>>>>> 3997248d39cc0330659baa419e7c913e5c523cf8
+import EventsForm from "./events/EventsForm";
 import MessagesList from "./messages/MessagesList";
 import FriendsList from "./user/FriendsList";
 import TasksList from "./tasks/TasksList"
@@ -28,23 +36,14 @@ export default (props) => {
             </UserProvider>
 
             <NewsProvider>
-
-            </NewsProvider>
-
-
-
-            <NewsProvider>
                 <FriendsProvider>
                     <Route exact path="/news" render={
                         props => <NewsList {...props} />
                     } />
+
                     <Route exact path="/news/create" render={
                         props => <NewsForm {...props} />
                     } />
-
-
-
-
 
                     <Route path="/news/edit/:newsId(\d+)" render={
                         props => <NewsForm {...props} />
