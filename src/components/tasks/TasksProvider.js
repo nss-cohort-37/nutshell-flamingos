@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react"
     The context is imported and used by individual components
     that need data
 */
-export const TasksContext = React.createContext()
+export const TaskContext = React.createContext()
 
 /*
  This component establishes what data can be used.
@@ -27,6 +27,17 @@ export const TasksProvider = (props) => {
             body: JSON.stringify(task)
         })
             .then(getTasks)
+    }
+
+    const patchTask = task => {
+      return fetch(`http://localhost:8088/tasks/${task.id}`, {
+          method: "PATCH",
+          headers: {
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify(task)
+      })
+          .then(getTasks)
     }
 
     const editTasks = task => {
@@ -61,11 +72,11 @@ export const TasksProvider = (props) => {
     }, [tasks])
 
     return (
-        <TasksContext.Provider value={{
-            tasks, addTasks, editTasks, deleteTask
+        <TaskContext.Provider value={{
+            tasks, addTasks, editTasks, deleteTask, patchTask
         }}>
             {props.children}
-        </TasksContext.Provider>
+        </TaskContext.Provider>
     )
 }
 
