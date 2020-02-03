@@ -40,25 +40,28 @@ const checkbox = ()=>{
 
 return (
   
-  <section className="task">
+  <section className="task--card">
 
       
-      <div>{task.text}</div>
-    
+      <div className="task--name">{task.text}</div>
+    <div className="task--btns">
+    <div classname="task--content">
+
       <label>Completed?</label>
       {checkbox()}
+    </div>
       
 
 
 
 
 
-         
-      <button className="deleteTaskButton" onClick={()=>{
-
+        <button className="deleteTaskButton" onClick={()=>{
+          
           deleteTask(task).then(()=> history.push("/tasks"))
-      }
+        }
       }>Delete</button>
+    </div>
   </section>
 )
 

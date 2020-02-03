@@ -13,7 +13,9 @@ export default (props) => {
 
   return (
       <>
-          <h1>Tasks</h1>
+      <aside className="taskContainer">
+
+          <h1 className="page--title">Tasks</h1>
 
           <button onClick={() => props.history.push("/tasks/create")}>
             New Task
@@ -26,6 +28,7 @@ export default (props) => {
                   })
               }
           </div>
+      </aside>
       </>
   )
 }
