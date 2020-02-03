@@ -14,6 +14,9 @@ export default ({ news, history }) => {
     // Display conditional buttons
 
     function LoggedInUserButtons() {
+
+      
+      
       if (news.userId === parseInt(localStorage.getItem("currentUserId"))) {
         return (
           <>
@@ -22,7 +25,7 @@ export default ({ news, history }) => {
           }}>Edit</button>
 
           <button onClick={
-              () => {
+              () => {debugger
                   deleteNews(news)
                       .then(() => {
                           history.push("/news")
@@ -40,7 +43,7 @@ export default ({ news, history }) => {
             <div className="news__title">{news.title}</div>
             <div className="news__synopsis">{news.synopsis}</div>
             <div className="news__url">{news.url}</div>
-            <div className="news__url">posted by {news.user.name}</div>
+            {/* <div className="news__url">posted by {news.user.name}</div> */}
             <div className="news__url">posted by {news.date}</div>
             <div>{LoggedInUserButtons()}</div>
             
