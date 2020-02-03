@@ -13,7 +13,7 @@ export const NewsProvider = (props) => {
     const [news, setNews] = useState([])
 
     const getNews = () => {
-        return fetch("http://localhost:8088/news?_expand=user")
+        return fetch("http://localhost:8088/news")
             .then(res => res.json())
             .then(setNews)
     }
@@ -40,8 +40,8 @@ export const NewsProvider = (props) => {
             .then(getNews)
     }
 
-    const deleteNews = newsId => {
-        return fetch(`http://localhost:8088/news/${newsId}`, {
+    const deleteNews = news => {
+        return fetch(`http://localhost:8088/news/${news.id}`, {
             method: "DELETE"
         })
             .then(getNews)
