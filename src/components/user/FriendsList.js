@@ -70,12 +70,12 @@ export default (props) => {
                 .then(() => {friendName.current.value = ""})
       
               } else {
-                alert("User is already a friend")
+                alert(`You are already friends with ${foundUserArray[0].name}`)
                 {friendName.current.value = ""}
       
               }
             } else {
-              alert("You can't add yourself, dummy")
+              alert("You cannot be friends with yourself")
               {friendName.current.value = ""}
       
             }
