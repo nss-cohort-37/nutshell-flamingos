@@ -1,16 +1,16 @@
 
 import React, {useContext} from "react"
-import "./Events.css"
 import { EventsContext } from "./EventsProvider"
+import "./Events.css"
 
 
 export default ({ event, history }) => {
 
-    const { deleteEvent } = useContext(EventsContext)
-    
+    const { deleteEvents } = useContext(EventsContext)
+
     // Display conditional buttons
     function LoggedInUserButtons() {
-      if (event.userId === parseInt(localStorage.getItem("currentUser"))) {
+      if (event.userId === parseInt(localStorage.getItem("currentUserId"))) {
         return (
           <>
             <button onClick={() => {
@@ -19,7 +19,7 @@ export default ({ event, history }) => {
 
           <button onClick={
               () => {
-                  deleteEvent(event)
+                  deleteEvents(event)
                       .then(() => {
                           history.push("/events")
                       })}
@@ -28,7 +28,7 @@ export default ({ event, history }) => {
         )
       }
     } 
-
+ 
 
     return(
         <section className="event__list">
@@ -42,11 +42,6 @@ export default ({ event, history }) => {
         </section>
     )
 }
-
-
-
-
-
 
 
 
