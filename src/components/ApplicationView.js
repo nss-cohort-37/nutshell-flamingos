@@ -4,6 +4,12 @@ import { UserProvider } from "./user/UserProvider"
 import { NewsProvider } from "./news/NewsProvider";
 import { EventsProvider } from "./events/EventsProvider";
 import { FriendsProvider } from "./user/FriendsProvider";
+<<<<<<< HEAD
+import TasksForm from "./tasks/TasksForm"
+import { TasksProvider } from "./tasks/TasksProvider";
+import NewsForm from "./news/NewsForm"
+import NewsList from "./news/NewsList";
+=======
 import {MessagesProvider} from "./messages/MessagesProvider";
 import { TasksProvider } from "./tasks/TasksProvider";
 
@@ -11,6 +17,7 @@ import TasksForm from "./tasks/TasksForm";
 import NewsList from "./news/NewsList";
 import NewsForm from "./news/NewsForm";
 import EventsList from "./events/EventsList";
+>>>>>>> 3997248d39cc0330659baa419e7c913e5c523cf8
 import EventsForm from "./events/EventsForm";
 import MessagesList from "./messages/MessagesList";
 import FriendsList from "./user/FriendsList";
@@ -45,13 +52,16 @@ export default (props) => {
             </NewsProvider>
 
             <TasksProvider>
-                    <Route exact path="/" render ={
-                        props => <TasksList { ...props} />
-                    } />
-
-                    <Route exact path="/tasks/create" render={
+                  <Route path="/" render ={
+                            props => <TasksList { ...props} />
+                        } />
+                  <Route path="/tasks/create" render={
+                                  props => <TasksForm {...props} />
+                              } />
+                  <Route path="/tasks/edit/:taskId(\d+)" render={
                         props => <TasksForm {...props} />
                     } />
+
             </TasksProvider>
             <MessagesProvider>
                 

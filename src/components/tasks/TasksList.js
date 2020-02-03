@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import { TasksContext } from "./TasksProvider"
+import { TaskContext } from "./TasksProvider"
 import Task from "./Task"
 import "./Tasks.css"
 
@@ -7,7 +7,7 @@ import "./Tasks.css"
 
 
 export default (props) => {
-  const { tasks } = useContext(TasksContext)
+  const { tasks } = useContext(TaskContext)
   const  currentUserId  = parseInt(localStorage.getItem("currentUserId"), 10)
   const currentUserTasks = tasks.filter(task => task.userId === currentUserId)
 
@@ -22,7 +22,7 @@ export default (props) => {
               {
                   currentUserTasks.map(task => {
                     console.log("Displaying tasks")
-                      return <Task key={task.id} task={task} />
+                      return <Task {...props} key={task.id} task={task} />
                   })
               }
           </div>
